@@ -1,0 +1,10 @@
+.wrap{
+    /* margin: auto 5rem; */
+}
+
+.controls button{
+    outline: none;
+}
+.pdf-container{
+    user-select: none;
+}

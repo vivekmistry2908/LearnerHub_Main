@@ -1,0 +1,134 @@
+.loginpage .page6-month {
+    background: linear-gradient(126deg, #576FF0 6.14%, #856EEB 40.47%, #D674DE 83.01%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "DM Serif Text";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 75px;
+}
+
+.loginpage .assistance {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+.loginpage .assistance .link {
+    background: linear-gradient(126deg, #576FF0 6.14%, #856EEB 40.47%, #D674DE 83.01%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "DM Serif Text";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 75px;
+}
+
+.required {
+    color: red;
+    font-size: 14px;
+}
+
+.loginpage .already-have-account {
+    color: '#2A3941';
+    font-size: 28px;
+}
+
+.loginpage .list-unstyled li {
+    font-size: 20px;
+}
+
+.Login-btn{
+    color: #ffffff;
+    font-size: 14px;
+    border: 1px solid #8587EA;
+    font-weight: 450;
+    letter-spacing: 0.32px;
+    line-height:22px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background-color: #8587EA;
+    text-decoration: none;
+    overflow:hidden;
+}
+
+.loginpage .forgot-btn{
+    background: transparent;
+    border: 0;
+    color: #FF845D;
+    text-decoration: none;
+}
+
+.Login-btn:hover{
+    background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+    color:#ffffff;
+    border: none;
+}
+
+@media screen and (max-width: 1023px) {
+    .loginpage .loginpageform1 {
+        min-height: 565px !important;
+    }
+
+    .loginpage .forms-div {
+        padding: 0px 20px !important;
+    }
+
+    .loginpage .already-have-account {
+        font-size: 20px !important;
+    }
+
+    .loginpage .assistance p {
+        font-size: 20px !important;
+    }
+
+    .loginpage .Login-btn {
+        width: 100%;
+    }
+
+    .loginpage .main-login {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .loginpage .login-img1 {
+        left: auto;
+        right: 0px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width:991px) {
+    
+}
+
+@media screen and (min-width: 992px) and (max-width:1200px) {
+
+    .loginpage .login-header {
+        font-size: 58px;
+    }
+
+    .loginpage .login-img1 {
+        left: auto;
+        right: 50px;
+        top: 100px;
+    }
+
+    .loginpage .main-login {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:1400px) {
+    .loginpage .list-unstyled li {
+        font-size: 14px;
+    }
+}

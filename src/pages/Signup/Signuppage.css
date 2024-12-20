@@ -1,0 +1,227 @@
+.signup .page6-month {
+    background: linear-gradient(126deg, #576FF0 6.14%, #856EEB 40.47%, #D674DE 83.01%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "DM Serif Text";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 75px;
+}
+
+.signup .assistance {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+.signup .assistance p {
+    background: linear-gradient(126deg, #576FF0 6.14%, #856EEB 40.47%, #D674DE 83.01%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "DM Serif Text";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 75px;
+}
+
+.signup .required {
+    color: red;
+    font-size: 14px;
+}
+
+.signup .already-have-account {
+    color: '#2A3941';
+    font-size: 28px;
+}
+
+.signup .list-unstyled li {
+    font-size: 20px;
+}
+
+.admin-request-success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    height: 100%;
+}
+
+.signup .list-terms {
+    color: #333;
+}
+
+.signup .list-terms ul li {
+    font-size: 14px;
+}
+
+.signup .list-terms h {
+    font-size: 14px;
+}
+
+.signup .otp-action-button{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.verify-otp-btn{
+    color: #ffffff;
+    font-size: 14px;
+    border: 1px solid #8587EA;
+    font-weight: 450;
+    letter-spacing: 0.32px;
+    line-height:22px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background-color: #8587EA;
+    text-decoration: none;
+    overflow:hidden;
+}
+
+.verify-otp-btn:hover{
+    background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+    color:#ffffff;
+    border: none;
+}
+
+@media screen and (max-width: 1023px) {
+    .signup .signupform1 {
+        min-height: 420px !important;
+    }
+
+    .signup .forms-div {
+        padding: 0px 20px !important;
+    }
+
+    .signup .btn-otp {
+        width: 100%;
+        margin-bottom: 75px;
+    }
+
+    .signup .already-have-account {
+        font-size: 20px !important;
+    }
+
+    .signup .assistance p {
+        font-size: 20px !important;
+    }
+
+    .signup .signup-btn {
+        width: 100%;
+    }
+
+    .signup .otp-form {
+        width: 85%;
+    }
+
+    .signup .otp-input {
+        padding: 10px;
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        background-color: #F9F9FB;
+    }
+
+    .signup .otp-verification-title {
+        margin-bottom: 10px !important;
+    }
+
+    .signup .otp-verification-message {
+        font-size: 13px !important;
+    }
+
+    .signup .main-login {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .signup .otp-action-button{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .signup .login-img1 {
+        left: auto;
+        right: 0;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width:991px) {
+    .signup .otp-form {
+        width: 55%;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width:1200px) {
+    .signup .otp-form {
+        width: 45%;
+    }
+
+    .signup .otp-input {
+        padding: 10px;
+        width: 50px;
+        text-align: center;
+        background-color: #F9F9FB;
+    }
+
+    .signup .login-header {
+        font-size: 58px;
+    }
+
+    .signup .login-img3 {
+        left: 285px;
+    }
+
+    .signup .terms-conditions{
+        max-height: 175px;
+        overflow-y: auto;
+    }
+
+    .signup .login-img1 {
+        left: auto;
+        right: 50px;
+        top: 100px;
+    }
+
+    .signup .signup-btn {
+        width: 100%;
+    }
+
+    .signup .btn-otp {
+        width: 100%;
+        margin-bottom: 75px;
+    }
+}
+
+@media screen and (min-width:1201px) {
+    .signup .otp-form {
+        width: 35%;
+    }
+
+    .signup .otp-input {
+        padding: 10px;
+        width: 50px;
+        text-align: center;
+        background-color: #F9F9FB;
+    }
+}
+
+@media screen and (max-width:1400px) {
+    .signup .list-unstyled li {
+        font-size: 14px;
+    }
+}
