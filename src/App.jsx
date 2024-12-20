@@ -24,7 +24,7 @@ import Matchflashcard from './pages/Matchflashcard.jsx';
 import Translatedpdf from './pages/Translatedpdf.jsx';
 import Filterflashcard from './pages/Filterflashcard.jsx';
 import Studylist from './pages/Studylist.jsx';
-import Loginpage from './pages/Login/Loginpage.jsx';
+import Loginpage from './pages/Login/Loginpage.jsx'; //Flow The Folder stru
 import Signuppage from './pages/Signup/Signuppage.jsx'; //Flow The Folder structure
 import UserFiles from './pages/UserFiles.jsx';
 import Adddetails from './pages/Adddetails.jsx';
