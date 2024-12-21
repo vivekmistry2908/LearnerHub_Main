@@ -741,22 +741,16 @@ const Dashboard = ({ language }) => {
       {loading ? (<Preloader />) : (
         <div className="d-flex " style={{ position: 'relative' }}>
           <Mainsidebar activevalue={"home"} count={count1}></Mainsidebar>
-          <div onClick={() => {
-            setcourse_visible(false)
-            setgroup_visible(false)
-            setstudylist_visible(false)
-          }} className=" w-100 pt-5  mt-5 bg-light main-division d-flex flex-column align-items-center px-3 px-lg-0 ">
-            <Navbar setindex1={setindex1} setCount={setCount} count={count1}></Navbar>
-            <div onClick={() => {
-              setnavbar_dropdown_visible(false)
-            }} className="container mb-3 row m-0 mt-1 shadow-sm py-4 bg-white align-items-center rounded  animate__animated animate__fadeIn">
+          <div onClick={() => { setcourse_visible(false); setgroup_visible(false); setstudylist_visible(false) }} className=" w-100 pt-5  mt-5 bg-light main-division d-flex flex-column align-items-center px-3 px-lg-0 ">
+            <div className="container">
+              <Navbar setindex1={setindex1} setCount={setCount} count={count1}></Navbar>
+            </div>
+            <div onClick={() => { setnavbar_dropdown_visible(false) }} className="container mb-3 row m-0 mt-1 shadow-sm py-4 bg-white align-items-center rounded  animate__animated animate__fadeIn">
               <div className="col-lg-3 col-md-3 d-flex align-items-center">
                 <img src={userdetails.profile_pic} width={50} className={userdetails.profile_pic == null ? 'd-none' : 'd-inline rounded'} alt="" />
                 {userdetails.nickname != undefined ? (<p className={userdetails.profile_pic == null ? 'd-inine bg-success text-white p-3 rounded-circle my-auto' : 'd-none'}><span>{userdetails.nickname.slice(0, 1)}</span><span>{userdetails.nickname.slice(-1)}</span></p>) : (<></>)}
                 <div className="ms-2">
-                  <span className="fw-bold" style={{ fontSize: '18px', cursor: 'pointer' }} onClick={() => {
-                    navigate(`/profile/${user.user_id}`)
-                  }}>{userdetails.nickname}</span><br />
+                  <span className="fw-bold" style={{ fontSize: '18px', cursor: 'pointer' }} onClick={() => { navigate(`/profile/${user.user_id}`) }}>{userdetails.nickname}</span><br />
                   <span style={{ fontSize: '14px' }}>{userdetails.program_name}</span>
                 </div>
               </div>
@@ -783,17 +777,7 @@ const Dashboard = ({ language }) => {
                     {translate_value.dashboard.uploads}
                   </span> : {datacount.documents_count}
                 </span>
-                {/*uplaod document */}
-                {/*uplaod document need to check *
-<span className="ms-2" style={{fontSize: '14px', letterSpacing: '3.5px'}}>
-      <span 
-        className="d-none d-md-inline" 
-        onClick={() => navigate(`/userfiles/${user_id}/uploaded_documents`)} // Updated navigation path
-      >
-        {translate_value.dashboard.uploads}
-      </span> : {datacount.documents_count}
-    </span>
-{/*uplaod document */}
+
               </div>
               <div className="col-lg-3 col-md-3 col-4 d-flex align-items-center border-end justify-content-center mt-4 mt-md-0" style={{ letterSpacing: '2px', cursor: 'pointer' }}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
@@ -805,36 +789,12 @@ const Dashboard = ({ language }) => {
 
             {/* ----------------------------------Documents under Joined Courses in Carousel------------------------------------- */}
 
-            <p onClick={() => {
-              setnavbar_dropdown_visible(false)
-            }} className={`container mt-4 mb-3 m-0`} style={{ fontSize: '20px', fontWeight: 500, letterSpacing: '0.4px' }}>{translate_value.dashboard.recommended_documents}</p>
-            <div onClick={() => {
-              setnavbar_dropdown_visible(false)
-            }} className={`container bg-white shadow rounded mb-5`}>
+            <p onClick={() => { setnavbar_dropdown_visible(false) }} className={`container mt-4 mb-3 m-0`} style={{ fontSize: '20px', fontWeight: 500, letterSpacing: '0.4px' }}>{translate_value.dashboard.recommended_documents}</p>
+            <div onClick={() => { setnavbar_dropdown_visible(false) }} className={`container bg-white shadow rounded mb-5`}>
               <div className="d-flex gap-2 gap-lg-4 pt-3 px-1">
-
-
-
                 <Slider {...settings1} className={`${joinedcourses.length > 0 ? 'd-block w-100 ps-1 ps-md-4' : 'd-none'}`}>
                   {joinedcourses.map((x) => {
                     return (
-                      /* older version ****************
-                                          
-                                            <div className="">
-                                               <OverlayTrigger
-                                                placement="top"
-                                                delay={{ show: 250, hide: 250 }}
-                                                overlay={renderTooltip(x.course_name)}>
-                                              <span className={visiblity===x.course_id ? 'text-decoration-underline' : ''} style={{fontWeight:500,letterSpacing:'0.36px',lineHeight:'normal',cursor:'pointer',fontSize:'18px', overflowX:'auto',color:visiblity===x.course_id ? 'black' : 'gray'}} 
-                                              onClick={()=>{
-                                                getDocs(x.course_id)
-                                                setVisibility(x.course_id)
-                                              }}>vvv{x.course_name.slice(0,10)} (<span className=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                <path d="M2.59619 18.6154V16.9693C2.59619 16.5052 2.71638 16.1061 2.95677 15.7722C3.19715 15.4382 3.52019 15.1713 3.92589 14.9714C4.79327 14.5585 5.65452 14.2292 6.50964 13.9837C7.36477 13.7382 8.39362 13.6154 9.59619 13.6154C10.7988 13.6154 11.8276 13.7382 12.6827 13.9837C13.5379 14.2292 14.3991 14.5585 15.2665 14.9714C15.6722 15.1713 15.9952 15.4382 16.2356 15.7722C16.476 16.1061 16.5962 16.5052 16.5962 16.9693V18.6154H2.59619ZM18.5962 18.6154V16.9231C18.5962 16.3436 18.4789 15.7966 18.2443 15.2821C18.0098 14.7676 17.677 14.3261 17.2462 13.9577C17.7372 14.0577 18.2103 14.1965 18.6654 14.3741C19.1206 14.5516 19.5706 14.7513 20.0154 14.9731C20.4488 15.1911 20.7885 15.47 21.0347 15.8098C21.2808 16.1497 21.4039 16.5208 21.4039 16.9231V18.6154H18.5962ZM9.59619 11.3847C8.77119 11.3847 8.06494 11.0909 7.47744 10.5034C6.88994 9.91592 6.59619 9.20967 6.59619 8.38467C6.59619 7.55965 6.88994 6.85339 7.47744 6.26589C8.06494 5.67839 8.77119 5.38464 9.59619 5.38464C10.4212 5.38464 11.1274 5.67839 11.7149 6.26589C12.3024 6.85339 12.5962 7.55965 12.5962 8.38467C12.5962 9.20967 12.3024 9.91592 11.7149 10.5034C11.1274 11.0909 10.4212 11.3847 9.59619 11.3847ZM16.8654 8.38467C16.8654 9.20967 16.5717 9.91592 15.9842 10.5034C15.3967 11.0909 14.6904 11.3847 13.8654 11.3847C13.8231 11.3847 13.7693 11.3799 13.7039 11.3702C13.6385 11.3606 13.5847 11.3501 13.5423 11.3385C13.8811 10.9236 14.1414 10.4633 14.3233 9.95764C14.5052 9.45198 14.5962 8.92685 14.5962 8.38227C14.5962 7.8377 14.501 7.31734 14.3106 6.82119C14.1202 6.32504 13.8641 5.86158 13.5423 5.43079C13.5962 5.41158 13.65 5.39908 13.7039 5.39329C13.7577 5.38753 13.8116 5.38464 13.8654 5.38464C14.6904 5.38464 15.3967 5.67839 15.9842 6.26589C16.5717 6.85339 16.8654 7.55965 16.8654 8.38467ZM3.59619 17.6154H15.5962V16.9693C15.5962 16.7347 15.5375 16.5295 15.4202 16.3539C15.3029 16.1782 15.0923 16.0103 14.7885 15.85C14.0423 15.4513 13.2558 15.1459 12.4289 14.9337C11.602 14.7215 10.6577 14.6154 9.59619 14.6154C8.53466 14.6154 7.59042 14.7215 6.76349 14.9337C5.93657 15.1459 5.15004 15.4513 4.40389 15.85C4.10004 16.0103 3.88946 16.1782 3.77214 16.3539C3.65484 16.5295 3.59619 16.7347 3.59619 16.9693V17.6154ZM9.59619 10.3847C10.1462 10.3847 10.617 10.1888 11.0087 9.79717C11.4004 9.4055 11.5962 8.93467 11.5962 8.38467C11.5962 7.83467 11.4004 7.36384 11.0087 6.97217C10.617 6.5805 10.1462 6.38467 9.59619 6.38467C9.04619 6.38467 8.57536 6.5805 8.18369 6.97217C7.79202 7.36384 7.59619 7.83467 7.59619 8.38467C7.59619 8.93467 7.79202 9.4055 8.18369 9.79717C8.57536 10.1888 9.04619 10.3847 9.59619 10.3847Z" fill="currentColor"/>
-                                              </svg> {x.students_count}</span>)</span>
-                                              </OverlayTrigger>
-                                            </div>
-                        /* older version */
                       /* Start Newer version *******************/
                       <div className="">
                         <OverlayTrigger
@@ -861,31 +821,17 @@ const Dashboard = ({ language }) => {
                               transition: 'transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease', // Smooth transition for transform and color
                               transform: visiblity === x.course_id ? 'scale(1.05)' : 'scale(1)' // Slightly scale up the selected button
                             }}
-                            onClick={() => {
-                              getDocs(x.course_id);
-                              setVisibility(x.course_id);
-                            }}
+                            onClick={() => { getDocs(x.course_id); setVisibility(x.course_id); }}
                             onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'} // Scale up on hover
-                            onMouseLeave={(e) => e.currentTarget.style.transform = visiblity === x.course_id ? 'scale(1.05)' : 'scale(1)'} // Reset scale on mouse leave
-                          >
+                            onMouseLeave={(e) => e.currentTarget.style.transform = visiblity === x.course_id ? 'scale(1.05)' : 'scale(1)'} >
                             {x.course_name.slice(0, 7)}...
-                            <i className='fas fa-users' style={{
-                              marginRight: '10px',
-                              fontSize: '1rem',  // Reduced from 1.5rem to 1rem
-                              color: visiblity === x.course_id ? 'white' : '#e88b67'
-                            }}></i>
+                            <i className='fas fa-users' style={{ marginRight: '10px', fontSize: '1rem', color: visiblity === x.course_id ? 'white' : '#e88b67' }}></i>
                             ({x.students_count})
                           </button>
                         </OverlayTrigger>
                       </div>
 
-
-
-
                       /* ***********************End newer version */
-
-
-
 
                     )
                   })}
@@ -901,11 +847,7 @@ const Dashboard = ({ language }) => {
                     }}>
                       <div className="card-body p-0">
                         <div className="d-flex justify-content-center align-items-center border" style={{ height: '250px', overflow: 'hidden', width: '100%', position: 'relative', cursor: 'pointer' }}> {/* Set a fixed height for the document container */}
-                          <Document file={x.file.document}
-                          // onLoadSuccess={() => 
-                          //   console.log('Document loaded successfully.')
-                          //   }
-                          >
+                          <Document file={x.file.document}>
                             <Page pageNumber={1} scale={0.5} width={350} />
                           </Document>
                         </div>
@@ -936,23 +878,14 @@ const Dashboard = ({ language }) => {
               </div>
             </div>
 
-
             {/* ----------------------------------------------University Discussion------------------------------------------------ */}
 
-            <div onClick={() => {
-              setnavbar_dropdown_visible(false)
-            }} className="m-0 mt-3 p-0 mb-5 row dashboard-discussion">
-              <div className="d-flex justify-content-between align-items-center pb-3 ps-0" onClick={() => {
-                setindex1(-1)
-              }}>
+            <div onClick={() => {setnavbar_dropdown_visible(false)}} className="container">
+              <div className="mt-3 p-0 mb-5 row">
+              <div className="d-flex justify-content-between align-items-center pb-3 ps-0" onClick={() => {setindex1(-1)}}>
                 <div>
-                  <h6 onClick={() => {
-                    settablist(true)
-                  }} className="d-none d-md-inline p-1 px-3" style={{ cursor: 'pointer', fontSize: '17px', fontWeight: 500, letterSpacing: '0.4px', lineHeight: 'normal', backgroundColor: tablist ? '#5D5FE3' : '#fff', border: '1px solid #5D5FE3', color: tablist ? '#fff' : '#5D5FE3', borderRadius: '5px 0px 0px 5px' }}>{translate_value.dashboard.news_feed}</h6>
-                  <h6 onClick={() => {
-                    setpincomment_status(true)
-                    settablist(false)
-                  }} className="d-none d-md-inline p-1 px-3" style={{ cursor: 'pointer', fontSize: '17px', fontWeight: 500, letterSpacing: '0.4px', lineHeight: 'normal', backgroundColor: tablist ? '#fff' : '#5D5FE3', border: '1px solid #5D5FE3', color: tablist ? '#5D5FE3' : '#fff', borderRadius: '0px 5px 5px 0px' }}>{translate_value.dashboard.followed}</h6>
+                  <h6 onClick={() => { settablist(true) }} className="d-none d-md-inline p-1 px-3" style={{ cursor: 'pointer', fontSize: '17px', fontWeight: 500, letterSpacing: '0.4px', lineHeight: 'normal', backgroundColor: tablist ? '#5D5FE3' : '#fff', border: '1px solid #5D5FE3', color: tablist ? '#fff' : '#5D5FE3', borderRadius: '5px 0px 0px 5px' }}>{translate_value.dashboard.news_feed}</h6>
+                  <h6 onClick={() => { setpincomment_status(true); settablist(false) }} className="d-none d-md-inline p-1 px-3" style={{ cursor: 'pointer', fontSize: '17px', fontWeight: 500, letterSpacing: '0.4px', lineHeight: 'normal', backgroundColor: tablist ? '#fff' : '#5D5FE3', border: '1px solid #5D5FE3', color: tablist ? '#5D5FE3' : '#fff', borderRadius: '0px 5px 5px 0px' }}>{translate_value.dashboard.followed}</h6>
                 </div>
                 <div className="d-flex">
                   <div className={`input-group bg-light rounded border`}>
@@ -989,46 +922,48 @@ const Dashboard = ({ language }) => {
                               <div className='d-flex gap-3 align-items-center'>
                                 <img src={userdetails.profile_pic} className={userdetails.profile_pic == null ? 'd-none' : 'rounded-circle'} width={40} height={40} alt="" />
                                 {userdetails.nickname != undefined ? (<p className={userdetails.profile_pic == null ? 'd-flex justify-content-center align-items-center bg-warning text-white rounded-circle my-auto' : 'd-none'} style={{ height: '40px', width: '40px' }}><span>{userdetails.nickname.slice(0, 1)}</span><span>{userdetails.nickname.slice(-1)}</span></p>) : (<></>)}
+                               <form onSubmit={postQuestion} className="w-100">
                                 <div className="input-group bg-light border rounded pe-3">
-                                  <input
-                                    type="text"
-                                    name="question"
-                                    value={question}
-                                    onChange={questionData}
-                                    className="form-control py-3 ps-3 bg-light border-0 shadow-none post-input" placeholder="Post your Comment....."
-                                    style={{ position: 'relative' }} />
-                                  <div className='d-flex align-items-center bg-light'>
                                     <input
-                                      id="fileInput"
-                                      type='file'
-                                      name='file'
-                                      accept="image/*"
-                                      multiple
-                                      onChange={handleImageChange}
-                                      className="bg-light text-center p-3 btn"
+                                      type="text"
+                                      name="question"
+                                      value={question}
+                                      onChange={questionData}
+                                      className="form-control py-3 ps-3 bg-light border-0 shadow-none post-input" placeholder="Post your Comment....."
+                                      style={{ position: 'relative' }}
                                     />
-                                    <label data-bs-toggle="tooltip" data-bs-placement="top"
-                                      data-bs-custom-class="custom-tooltip"
-                                      data-bs-title="Attach Image"
-                                      htmlFor="fileInput"
-                                      className="custom-file-input bg-transparent border-0 px-4 py-2">
-                                      <img src={require('../img/attachment.png')} width={22} height={22} alt="" />
-                                    </label>
-                                    <button disabled={question.length > 0 ? false : true} data-bs-dismiss="modal" onClick={postQuestion} className='text-secondary h-100 bg-transparent border-0 ms-2 outline-0' >
-                                      <div className={`spinner-border spinner-border-sm ${load ? '' : 'd-none'}`} role="status">
-                                        <span className="visually-hidden">Loading...</span>
-                                      </div>
-                                      <svg data-bs-toggle="tooltip" data-bs-placement="top"
+                                    <div className='d-flex align-items-center bg-light'>
+                                      <input
+                                        id="fileInput"
+                                        type='file'
+                                        name='file'
+                                        accept="image/*"
+                                        multiple
+                                        onChange={handleImageChange}
+                                        className="bg-light text-center p-3 btn"
+                                      />
+                                      <label data-bs-toggle="tooltip" data-bs-placement="top"
                                         data-bs-custom-class="custom-tooltip"
-                                        data-bs-title="Post" xmlns="http://www.w3.org/2000/svg" className={`${load ? 'd-none' : ''}`} width="30" height="30" viewBox="0 0 30 30" fill="none">
-                                        <path d="M5 23.125V6.875L24.2789 15L5 23.125ZM6.25 21.25L21.0625 15L6.25 8.75V13.6058L12.3077 15L6.25 16.3942V21.25Z" fill="#8E9696" />
-                                      </svg>
-                                    </button>
-                                  </div>
+                                        data-bs-title="Attach Image"
+                                        htmlFor="fileInput"
+                                        className="custom-file-input bg-transparent border-0 px-4 py-2">
+                                        <img src={require('../img/attachment.png')} width={22} height={22} alt="" />
+                                      </label>
+                                      <button type="submit" disabled={question.length > 0 ? false : true} data-bs-dismiss="modal" onClick={postQuestion} className='text-secondary h-100 bg-transparent border-0 ms-2 outline-0' >
+                                        <div className={`spinner-border spinner-border-sm ${load ? '' : 'd-none'}`} role="status">
+                                          <span className="visually-hidden">Loading...</span>
+                                        </div>
+                                        <svg data-bs-toggle="tooltip" data-bs-placement="top"
+                                          data-bs-custom-class="custom-tooltip"
+                                          data-bs-title="Post" xmlns="http://www.w3.org/2000/svg" className={`${load ? 'd-none' : ''}`} width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                          <path d="M5 23.125V6.875L24.2789 15L5 23.125ZM6.25 21.25L21.0625 15L6.25 8.75V13.6058L12.3077 15L6.25 16.3942V21.25Z" fill="#8E9696" />
+                                        </svg>
+                                      </button>
+                                    </div>
                                 </div>
+                               </form>
+                                
                               </div>
-                              {/* margin-top: 8px;
-                              margin-left: 50px; */}
                               <p className="mt-1 ms-5" style={{ color: '#ff845d', fontSize: '13px', fontStyle: 'italic' }}>*You can edit your post within 24 hours after posting</p>
                               <div className='d-flex gap-3 mt-3'>
                                 {selectedImages.length > 0 &&
@@ -1474,6 +1409,7 @@ const Dashboard = ({ language }) => {
                   <button className='btn w-100 fw-medium mt-3' style={{ border: '1px solid #5D5FE3', color: '#5D5FE3', fontSize: '16px', fontWeight: 500, letterSpacing: '0.32px', lineHeight: '22px' }} data-bs-toggle="modal"
                     data-bs-target="#postmodal">{translate_value.dashboard.create_a_post}</button>
                 </div>
+              </div>
               </div>
             </div>
           </div>
